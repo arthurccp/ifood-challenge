@@ -2,34 +2,34 @@ import UIKit
 
 final class CharacterDetailViewController: UIViewController {
     private let character: Result
-    private let portrait = UIImageView()
-    private var imageTask: URLSessionDataTask?
+    private let portrait = RemoteImageView()
 
+    // Recebe o personagem selecionado para apresentar seus detalhes.
     init(character: Result) {
         self.character = character
         super.init(nibName: nil, bundle: nil)
     }
 
+    // Impede a criação pelo storyboard; este componente exige inicialização programática.
     required init?(coder: NSCoder) {
-        fatalError("Use init(character:)")
+        fatalError(AppStrings.Diagnostic.characterInitializer)
     }
 
-    deinit {
-        imageTask?.cancel()
-    }
-
+    // Oculta a barra nativa para usar o botão de voltar sobre a foto.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
+    // Monta os detalhes e inicia o carregamento da foto do personagem.
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         setupContent()
-        loadImage()
+        portrait.load(character.image)
     }
 
+    // Organiza a foto, o nome e os cards em uma área com rolagem.
     private func setupContent() {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,18 +40,18 @@ final class CharacterDetailViewController: UIViewController {
         portrait.layer.cornerRadius = 20
         portrait.clipsToBounds = true
         portrait.isAccessibilityElement = true
-        portrait.accessibilityLabel = "Foto de \(character.name)"
+        portrait.accessibilityLabel = AppStrings.Message.portrait(character.name)
 
         let photoContainer = UIView()
         portrait.translatesAutoresizingMaskIntoConstraints = false
         photoContainer.addSubview(portrait)
         let backButton = UIButton(type: .system)
-        backButton.setImage(UIImage(systemName: "chevron.left", withConfiguration:
+        backButton.setImage(UIImage(systemName: AppStrings.Symbol.back, withConfiguration:
             UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)), for: .normal)
         backButton.tintColor = .white
         backButton.backgroundColor = UIColor(white: 0.08, alpha: 0.9)
         backButton.layer.cornerRadius = 22
-        backButton.accessibilityLabel = "Voltar"
+        backButton.accessibilityLabel = AppStrings.Text.back
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         photoContainer.addSubview(backButton)
@@ -72,17 +72,17 @@ final class CharacterDetailViewController: UIViewController {
         information.isLayoutMarginsRelativeArrangement = true
         information.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
 
-        let fields: [(String, String, String)] = [
-            ("ID", String(character.id), "number"),
-            ("Status", character.status, "circle.fill"),
-            ("Espécie", character.species, "person.2"),
-            ("Tipo", character.type.isEmpty ? "Não informado" : character.type, "fossil.shell"),
-            ("Gênero", character.gender, "person"),
-            ("Origem", placeName(character.origin.name), "globe.americas"),
-            ("Localização", placeName(character.location.name), "mappin.and.ellipse")
+        let fields: [(String, String, String, UIColor, CGFloat)] = [
+            (AppStrings.Text.id, String(character.id), AppStrings.Symbol.id, UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1), 23),
+            (AppStrings.Text.status, character.status, AppStrings.Symbol.status, statusColor, 16),
+            (AppStrings.Text.species, character.species, AppStrings.Symbol.species, UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1), 23),
+            (AppStrings.Text.type, character.type.isEmpty ? AppStrings.Text.unspecified : character.type, AppStrings.Symbol.type, UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1), 23),
+            (AppStrings.Text.gender, character.gender, AppStrings.Symbol.gender, UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1), 23),
+            (AppStrings.Text.origin, placeName(character.origin.name), AppStrings.Symbol.origin, UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1), 23),
+            (AppStrings.Text.location, placeName(character.location.name), AppStrings.Symbol.location, UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1), 23)
         ]
-        for (title, value, symbol) in fields {
-            information.addArrangedSubview(makeCard(title, value: value, symbol: symbol))
+        for (title, value, symbol, color, size) in fields {
+            information.addArrangedSubview(makeCard(title, value: value, symbol: symbol, color: color, iconSize: size))
         }
 
         let stack = UIStackView(arrangedSubviews: [photoContainer, information])
@@ -113,38 +113,41 @@ final class CharacterDetailViewController: UIViewController {
         ])
     }
 
+    // Retorna à tela anterior pela pilha de navegação.
     @objc private func goBack() {
         navigationController?.popViewController(animated: true)
     }
 
+    // Substitui nomes de lugares vazios ou desconhecidos por um texto legível.
     private func placeName(_ value: String) -> String {
-        value.isEmpty || value.lowercased() == "unknown" ? "Desconhecida" : value
+        value.isEmpty || value.lowercased() == AppStrings.API.unknown ? AppStrings.Text.unknownPlace : value
     }
 
-    private func makeCard(_ title: String, value: String, symbol: String) -> UIView {
+    private var statusColor: UIColor {
+        switch character.status.lowercased() {
+        case AppStrings.API.alive: return .systemGreen
+        case AppStrings.API.dead: return .systemRed
+        default: return .systemGray
+        }
+    }
+
+    // Cria um card acessível com título, valor e aparência do ícone recebida.
+    private func makeCard(_ title: String, value: String, symbol: String, color: UIColor, iconSize: CGFloat) -> UIView {
         let card = UIView()
         card.backgroundColor = UIColor(white: 0.045, alpha: 1)
         card.layer.cornerRadius = 16
         card.layer.borderWidth = 0.5
         card.layer.borderColor = UIColor(white: 0.09, alpha: 1).cgColor
         card.isAccessibilityElement = true
-        card.accessibilityLabel = "\(title): \(value)"
+        card.accessibilityLabel = AppStrings.Message.detail(title: title, value: value)
 
         let iconContainer = UIView()
         iconContainer.backgroundColor = UIColor(white: 0.10, alpha: 1)
         iconContainer.layer.cornerRadius = 12
         let icon = UIImageView(image: UIImage(systemName: symbol))
-        icon.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 23, weight: .regular)
+        icon.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: iconSize, weight: .regular)
         icon.contentMode = .scaleAspectFit
-        icon.tintColor = UIColor(red: 0.7, green: 0.85, blue: 0.95, alpha: 1)
-        if title == "Status" {
-            switch character.status.lowercased() {
-            case "alive": icon.tintColor = .systemGreen
-            case "dead": icon.tintColor = .systemRed
-            default: icon.tintColor = .systemGray
-            }
-            icon.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 16)
-        }
+        icon.tintColor = color
         icon.translatesAutoresizingMaskIntoConstraints = false
         iconContainer.addSubview(icon)
 
@@ -188,16 +191,4 @@ final class CharacterDetailViewController: UIViewController {
         return card
     }
 
-    private func loadImage() {
-        guard let url = URL(string: character.image) else { return }
-        imageTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, _ in
-            guard let response = response as? HTTPURLResponse,
-                  (200...299).contains(response.statusCode),
-                  let data, let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                self?.portrait.image = image
-            }
-        }
-        imageTask?.resume()
-    }
 }

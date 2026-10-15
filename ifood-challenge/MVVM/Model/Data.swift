@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct ApiRest: Codable {
-    let results : [Result]
+struct CharacterPage: Codable {
+    let results: [Result]
+    let info: Info
+
+    struct Info: Codable {
+        let next: URL?
+    }
 }
 
 struct Result : Codable {

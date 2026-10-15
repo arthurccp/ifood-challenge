@@ -1,15 +1,14 @@
 import UIKit
 
 final class CharacterCell: UITableViewCell {
-    static let identifier = "CharacterCell"
+    static let identifier = AppStrings.Identifier.characterCell
 
     private let card = UIView()
-    private let chevron = UIImageView(image: UIImage(systemName: "chevron.right"))
-    private let portrait = UIImageView()
+    private let chevron = UIImageView(image: UIImage(systemName: AppStrings.Symbol.next))
+    private let portrait = RemoteImageView()
     private let nameLabel = UILabel()
-    private var imageTask: URLSessionDataTask?
-    private var representedID: Int?
 
+    // Monta o card com foto, nome e seta de acesso aos detalhes.
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .black
@@ -64,34 +63,24 @@ final class CharacterCell: UITableViewCell {
         ])
         isAccessibilityElement = true
         accessibilityTraits = .button
-        accessibilityHint = "Abre os detalhes do personagem"
+        accessibilityHint = AppStrings.Text.openDetails
     }
 
+    // Impede a criação pelo storyboard; este componente exige inicialização programática.
     required init?(coder: NSCoder) {
-        fatalError("Use init(style:reuseIdentifier:)")
+        fatalError(AppStrings.Diagnostic.cellInitializer)
     }
 
+    // Cancela o carregamento da foto e restaura o placeholder antes da reutilização.
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageTask?.cancel()
-        representedID = nil
-        portrait.image = nil
+        portrait.reset()
     }
 
+    // Apresenta o nome do personagem e inicia o carregamento da foto.
     func configure(with character: Result) {
-        imageTask?.cancel()
-        representedID = character.id
-        portrait.image = nil
         nameLabel.text = character.name
         accessibilityLabel = character.name
-        guard let url = URL(string: character.image) else { return }
-        imageTask = URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
-            guard let data, let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                guard let self, self.representedID == character.id else { return }
-                self.portrait.image = image
-            }
-        }
-        imageTask?.resume()
+        portrait.load(character.image)
     }
 }
