@@ -3,13 +3,10 @@ import UIKit
 final class CharacterCell: UITableViewCell {
     static let identifier = "CharacterCell"
 
+    private let card = UIView()
+    private let chevron = UIImageView(image: UIImage(systemName: "chevron.right"))
     private let portrait = UIImageView()
     private let nameLabel = UILabel()
-    private let statusDot = UIView()
-    private let statusLabel = UILabel()
-    private let originLabel = UILabel()
-    private let locationLabel = UILabel()
-    private let episodesLabel = UILabel()
     private var imageTask: URLSessionDataTask?
     private var representedID: Int?
 
@@ -18,58 +15,56 @@ final class CharacterCell: UITableViewCell {
         backgroundColor = .black
         selectionStyle = .none
 
+        card.backgroundColor = UIColor(white: 0.045, alpha: 1)
+        card.layer.cornerRadius = 16
+        card.layer.borderWidth = 0.5
+        card.layer.borderColor = UIColor(white: 0.09, alpha: 1).cgColor
+        card.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(card)
+
         portrait.contentMode = .scaleAspectFill
         portrait.clipsToBounds = true
         portrait.layer.cornerRadius = 12
         portrait.backgroundColor = .darkGray
 
-        nameLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        nameLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: .systemFont(ofSize: 22, weight: .bold))
+        nameLabel.adjustsFontForContentSizeCategory = true
         nameLabel.textColor = .white
-        statusLabel.textColor = .white
-        for label in [statusLabel, originLabel, locationLabel, episodesLabel] {
-            label.font = .systemFont(ofSize: 14)
-        }
-        for label in [originLabel, locationLabel, episodesLabel] {
-            label.textColor = .lightGray
-        }
-        for label in [nameLabel, statusLabel, originLabel, locationLabel, episodesLabel] {
-            label.numberOfLines = 0
-        }
+        nameLabel.numberOfLines = 2
+        nameLabel.lineBreakMode = .byTruncatingTail
 
-        statusDot.layer.cornerRadius = 6
-        let statusRow = UIStackView(arrangedSubviews: [statusDot, statusLabel])
-        statusRow.axis = .horizontal
-        statusRow.alignment = .center
-        statusRow.spacing = 6
-
-        let details = UIStackView(arrangedSubviews: [
-            nameLabel, statusRow, originLabel, locationLabel, episodesLabel
-        ])
-        details.axis = .vertical
-        details.spacing = 6
-        details.setCustomSpacing(10, after: nameLabel)
-        details.setCustomSpacing(10, after: statusRow)
-
-        for subview in [portrait, details] {
+        chevron.tintColor = UIColor(white: 0.35, alpha: 1)
+        chevron.contentMode = .scaleAspectFit
+        chevron.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium)
+        chevron.isAccessibilityElement = false
+        for subview in [portrait, nameLabel, chevron] {
             subview.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(subview)
+            card.addSubview(subview)
         }
-        let imageWidth = portrait.widthAnchor.constraint(equalToConstant: 136)
-        imageWidth.priority = .defaultHigh
         NSLayoutConstraint.activate([
-            portrait.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            portrait.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            imageWidth,
-            portrait.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, multiplier: 0.36),
+            card.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
+            card.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
+            card.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            card.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
+            portrait.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 8),
+            portrait.widthAnchor.constraint(equalToConstant: 76),
             portrait.heightAnchor.constraint(equalTo: portrait.widthAnchor),
-            portrait.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -12),
-            details.leadingAnchor.constraint(equalTo: portrait.trailingAnchor, constant: 12),
-            details.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            details.topAnchor.constraint(equalTo: portrait.topAnchor, constant: 3),
-            details.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -12),
-            statusDot.widthAnchor.constraint(equalToConstant: 12),
-            statusDot.heightAnchor.constraint(equalToConstant: 12)
+            portrait.centerYAnchor.constraint(equalTo: card.centerYAnchor),
+            portrait.topAnchor.constraint(greaterThanOrEqualTo: card.topAnchor, constant: 6),
+            portrait.bottomAnchor.constraint(lessThanOrEqualTo: card.bottomAnchor, constant: -6),
+            nameLabel.leadingAnchor.constraint(equalTo: portrait.trailingAnchor, constant: 12),
+            nameLabel.trailingAnchor.constraint(equalTo: chevron.leadingAnchor, constant: -12),
+            nameLabel.centerYAnchor.constraint(equalTo: portrait.centerYAnchor),
+            nameLabel.topAnchor.constraint(greaterThanOrEqualTo: card.topAnchor, constant: 12),
+            nameLabel.bottomAnchor.constraint(lessThanOrEqualTo: card.bottomAnchor, constant: -12),
+            chevron.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -14),
+            chevron.centerYAnchor.constraint(equalTo: card.centerYAnchor),
+            chevron.widthAnchor.constraint(equalToConstant: 12),
+            chevron.heightAnchor.constraint(equalToConstant: 20)
         ])
+        isAccessibilityElement = true
+        accessibilityTraits = .button
+        accessibilityHint = "Abre os detalhes do personagem"
     }
 
     required init?(coder: NSCoder) {
@@ -88,17 +83,7 @@ final class CharacterCell: UITableViewCell {
         representedID = character.id
         portrait.image = nil
         nameLabel.text = character.name
-        statusLabel.text = "\(character.status) · \(character.species) · \(character.gender)"
-        originLabel.text = "Origem: \(character.origin.name)"
-        locationLabel.text = "Localização: \(character.location.name)"
-        episodesLabel.text = "\(character.episode.count) episódios no JSON enviado"
-
-        switch character.status.lowercased() {
-        case "alive": statusDot.backgroundColor = .systemGreen
-        case "dead": statusDot.backgroundColor = .systemRed
-        default: statusDot.backgroundColor = .systemGray
-        }
-
+        accessibilityLabel = character.name
         guard let url = URL(string: character.image) else { return }
         imageTask = URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
             guard let data, let image = UIImage(data: data) else { return }

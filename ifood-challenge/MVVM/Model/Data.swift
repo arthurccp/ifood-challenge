@@ -14,6 +14,9 @@ struct ApiRest: Codable {
 struct Result : Codable {
     let id: Int
     let name,status,species,gender, image: String
+    let type: String
+    let url: String
+    let created: String
     let origin: CharacterPlace
     let location: CharacterPlace
     let episode: [String]
