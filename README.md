@@ -110,29 +110,9 @@ Quando a página inicial falha, a tela apresenta a mensagem e **Tentar novamente
 
 Não é necessário instalar bibliotecas, configurar variáveis de ambiente ou informar chave de API. Para executar em aparelho físico, ajuste a equipe de assinatura e, se necessário, o bundle identifier em **Signing & Capabilities** dos targets.
 
-### Testes automatizados
-
-Com o mesmo esquema e um simulador selecionados, pressione **⌘U**. Os resultados aparecem no Test Navigator (**⌘6**).
-
-O target `ifood-challengeTests` contém oito testes em [CharacterTests.swift](Tests/CharacterTests.swift):
-
-1. Mensagens de erro e recuperação, incluindo bloqueio de cliques repetidos.
-2. Preservação da pesquisa e dos filtros ao tentar novamente.
-3. Descarte de uma resposta cancelada após mudar a pesquisa.
-4. Falha de paginação, repetição da página pendente, remoção de duplicatas e fim dos resultados.
-5. Restauração da próxima página e dos filtros.
-6. Descarte de uma página pendente após mudar os filtros.
-7. Persistência, preservação da posição e invalidação do estado antigo.
-8. Serviço com HTTP simulado: páginas, cache, parâmetros, respostas `404` e rejeição de URL externa.
-
-Os testes usam serviços simulados, `UserDefaults` isolado e `URLProtocol`, sem depender da API real. Não há testes automatizados de interface ou de carregamento de imagens nessa suíte.
-
 ## Limitações e possíveis evoluções
 
 - **Atualização dos dados:** os caches e o estado salvo não expiram automaticamente, e não há ação de atualizar a lista. Uma evolução seria permitir atualização explícita ou definir uma política de validade.
-- **Volume persistido:** o estado completo é serializado a cada página, e seu conteúdo anterior é decodificado para comparar a identidade. Para volumes maiores, convém medir o custo antes de mudar a estratégia de armazenamento.
-- **Cache em disco:** não há limpeza por idade ou tamanho implementada pelo app. O sistema pode remover arquivos do diretório de caches.
-- **Localização:** textos fixos estão em português no catálogo de constantes; não há arquivos de localização. Alguns valores dos personagens são exibidos como recebidos da API.
-- **Validação da interface:** rolagem, layouts, Launch Screen e acessibilidade exigem verificação no simulador ou dispositivo; os oito testes não exercitam esses aspectos visuais.
+- **Busca por nomes em português:** a pesquisa envia o nome digitado diretamente à API, sem converter nomes traduzidos ou apelidos em português. Uma evolução seria mapear essas variantes para os nomes utilizados pela API.
 
 Essas evoluções não fazem parte das funcionalidades entregues.
