@@ -15,13 +15,14 @@ Aplicação iOS desenvolvida para explorar personagens de Rick and Morty, consul
 - Ícone personalizado e Launch Screen com imagem configurada no `Info.plist`.
 
 ## Demonstração
+
 ### Fluxos em vídeo
 
 | Listagem, detalhes e filtros | Pesquisa e recuperação de falha de conexão |
 |---|---|
-| <img src="docs/demos/listagem-detalhes-filtros.gif" alt="Demonstração da listagem, abertura dos detalhes e uso dos filtros" width="296"> | <img src="docs/demos/gravacao-app.gif" alt="Demonstração de pesquisa e recuperação de falha de conexão" width="296"> |
+| <img src="docs/demos/listagem-detalhes-filtros.gif" alt="Demonstração da listagem, abertura dos detalhes e uso dos filtros" width="296"> | <img src="docs/demos/search-validacao.gif" alt="Demonstração de pesquisa e recuperação de falha de conexão" width="296"> |
 
-Os GIFs mantêm a duração completa das gravações e repetem continuamente. Para abrir separadamente: listagem, detalhes e filtros (docs/demos/listagem-detalhes-filtros.gif) e pesquisa e recuperação de falha (docs/demos/gravacao-app.gif).
+Os GIFs mantêm a duração completa das gravações e repetem continuamente. Para abrir separadamente: [listagem, detalhes e filtros](docs/demos/listagem-detalhes-filtros.gif) e [pesquisa e recuperação de falha](docs/demos/search-validacao.gif).
 
 ### Listagem e pesquisa
 
