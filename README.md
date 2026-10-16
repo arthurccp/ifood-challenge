@@ -1,6 +1,6 @@
 # Rick and Morty — Desafio iOS
 
-Aplicação iOS para explorar personagens de Rick and Morty, consultar seus detalhes e combinar pesquisa por nome com filtros. A solução atende à proposta de desenvolver uma aplicação simples e funcional, com consumo de API, paginação e recuperação local da última consulta.
+Aplicação iOS desenvolvida para explorar personagens de Rick and Morty, consultar seus detalhes e combinar pesquisa por nome com filtros. A solução atende à proposta de consumo de API, paginação e recuperação de dados local da última consulta.
 
 ## Funcionalidades
 
