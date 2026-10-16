@@ -6,22 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXTargetDependency section */
-		A10000000000000000000009 = { isa = PBXTargetDependency; target = E36F3BD630803AA800194DE0; targetProxy = A1000000000000000000000A; };
-/* End PBXTargetDependency section */
-
-/* Begin PBXContainerItemProxy section */
-		A1000000000000000000000A = { isa = PBXContainerItemProxy; containerPortal = E36F3BCF30803AA800194DE0; proxyType = 1; remoteGlobalIDString = E36F3BD630803AA800194DE0; remoteInfo = "ifood-challenge"; };
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXBuildFile section */
-		A1000000000000000000000E = { isa = PBXBuildFile; fileRef = A1000000000000000000000C; };
+		A1000000000000000000000E /* ifood-challenge/Tests/CharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000000C /* ifood-challenge/Tests/CharacterTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A1000000000000000000000A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E36F3BCF30803AA800194DE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E36F3BD630803AA800194DE0;
+			remoteInfo = "ifood-challenge";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		A10000000000000000000002 /* ifood-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ifood-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000000000000000000000C /* ifood-challenge/Tests/CharacterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ifood-challenge/Tests/CharacterTests.swift"; sourceTree = SOURCE_ROOT; };
 		E36F3BD730803AA800194DE0 /* ifood-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ifood-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A10000000000000000000002 = { isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ifood-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1000000000000000000000C = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ifood-challenge/Tests/CharacterTests.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -47,6 +49,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E36F3BD430803AA800194DE0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,15 +63,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A10000000000000000000004 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3518D4C308183AF00525A5A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A1000000000000000000000C /* ifood-challenge/Tests/CharacterTests.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		E36F3BCE30803AA800194DE0 = {
 			isa = PBXGroup;
 			children = (
 				E36F3BD930803AA800194DE0 /* ifood-challenge */,
 				E36F3BD830803AA800194DE0 /* Products */,
+				E3518D4C308183AF00525A5A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +95,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A10000000000000000000001 /* ifood-challengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000008 /* Build configuration list for PBXNativeTarget "ifood-challengeTests" */;
+			buildPhases = (
+				A10000000000000000000003 /* Sources */,
+				A10000000000000000000004 /* Frameworks */,
+				A10000000000000000000005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A10000000000000000000009 /* PBXTargetDependency */,
+			);
+			name = "ifood-challengeTests";
+			productName = "ifood-challengeTests";
+			productReference = A10000000000000000000002 /* ifood-challengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E36F3BD630803AA800194DE0 /* ifood-challenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E36F3BEA30803AAE00194DE0 /* Build configuration list for PBXNativeTarget "ifood-challenge" */;
@@ -100,15 +135,6 @@
 			productReference = E36F3BD730803AA800194DE0 /* ifood-challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A10000000000000000000001 = { isa = PBXNativeTarget;
-            buildConfigurationList = A10000000000000000000008;
-            buildPhases = (A10000000000000000000003, A10000000000000000000004, A10000000000000000000005,);
-            buildRules = ();
-            dependencies = (A10000000000000000000009,);
-            name = "ifood-challengeTests";
-            productName = "ifood-challengeTests";
-            productReference = A10000000000000000000002;
-            productType = "com.apple.product-type.bundle.unit-test"; };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,7 +145,10 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					A10000000000000000000001 = { CreatedOnToolsVersion = 16.3; TestTargetID = E36F3BD630803AA800194DE0; };
+					A10000000000000000000001 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = E36F3BD630803AA800194DE0;
+					};
 					E36F3BD630803AA800194DE0 = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -146,6 +175,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A10000000000000000000005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E36F3BD530803AA800194DE0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,10 +189,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A10000000000000000000005 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000000000000000000000E /* ifood-challenge/Tests/CharacterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E36F3BD330803AA800194DE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,10 +207,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A10000000000000000000003 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1000000000000000000000E,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A10000000000000000000009 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E36F3BD630803AA800194DE0 /* ifood-challenge */;
+			targetProxy = A1000000000000000000000A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A10000000000000000000006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y27FD8JCF2;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "teste.com.ifood-challengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ifood-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ifood-challenge";
+			};
+			name = Debug;
+		};
+		A10000000000000000000007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y27FD8JCF2;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "teste.com.ifood-challengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ifood-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ifood-challenge";
+			};
+			name = Release;
+		};
 		E36F3BEB30803AAE00194DE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -345,37 +435,18 @@
 			};
 			name = Release;
 		};
-		A10000000000000000000006 = { isa = XCBuildConfiguration;
-            buildSettings = {
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = Y27FD8JCF2;
-                GENERATE_INFOPLIST_FILE = YES;
-                LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks",);
-                PRODUCT_BUNDLE_IDENTIFIER = "teste.com.ifood-challengeTests";
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 5.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ifood-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ifood-challenge";
-            };
-            name = Debug; };
-		A10000000000000000000007 = { isa = XCBuildConfiguration;
-            buildSettings = {
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = Y27FD8JCF2;
-                GENERATE_INFOPLIST_FILE = YES;
-                LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks",);
-                PRODUCT_BUNDLE_IDENTIFIER = "teste.com.ifood-challengeTests";
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 5.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ifood-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ifood-challenge";
-            };
-            name = Release; };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A10000000000000000000008 /* Build configuration list for PBXNativeTarget "ifood-challengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000006 /* Debug */,
+				A10000000000000000000007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E36F3BD230803AA800194DE0 /* Build configuration list for PBXProject "ifood-challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -394,7 +465,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A10000000000000000000008 = { isa = XCConfigurationList; buildConfigurations = (A10000000000000000000006, A10000000000000000000007,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 /* End XCConfigurationList section */
 	};
 	rootObject = E36F3BCF30803AA800194DE0 /* Project object */;

@@ -114,36 +114,6 @@
             endingLineNumber = "47"
             landmarkName = "start()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F6624F83-9581-4FED-9266-4C85C3A069DA - a5099ea28abf8af4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ifood_challenge.CharacterListViewModel.start() -&gt; ()"
-                  moduleName = "ifood-challenge.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arthursilva/Documents/challenge-ifood/ifood-challenge/ifood-challenge/MVVM/ViewModel/CharacterListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47">
-               </Location>
-               <Location
-                  uuid = "F6624F83-9581-4FED-9266-4C85C3A069DA - a5099ea28abf8af4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ifood_challenge.CharacterListViewModel.start() -&gt; ()"
-                  moduleName = "ifood-challenge.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arthursilva/Documents/challenge-ifood/ifood-challenge/ifood-challenge/MVVM/ViewModel/CharacterListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,36 +162,6 @@
             endingLineNumber = "42"
             landmarkName = "CharacterListViewModel"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "1415AB13-E765-4B3C-B388-916E3148EB9D - bd222e833d0f5d12"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ifood_challenge.CharacterListViewModel.deinit"
-                  moduleName = "ifood-challenge.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arthursilva/Documents/challenge-ifood/ifood-challenge/ifood-challenge/MVVM/ViewModel/CharacterListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42">
-               </Location>
-               <Location
-                  uuid = "1415AB13-E765-4B3C-B388-916E3148EB9D - b87d7b0d56c8fd7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ifood_challenge.CharacterListViewModel.__deallocating_deinit"
-                  moduleName = "ifood-challenge.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arthursilva/Documents/challenge-ifood/ifood-challenge/ifood-challenge/MVVM/ViewModel/CharacterListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -254,36 +194,6 @@
             endingLineNumber = "41"
             landmarkName = "CharacterListViewModel"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "0E704073-12F5-4680-A582-902F2D689FE4 - bd222e833d0f5d12"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ifood_challenge.CharacterListViewModel.deinit"
-                  moduleName = "ifood-challenge.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arthursilva/Documents/challenge-ifood/ifood-challenge/ifood-challenge/MVVM/ViewModel/CharacterListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42">
-               </Location>
-               <Location
-                  uuid = "0E704073-12F5-4680-A582-902F2D689FE4 - b87d7b0d56c8fd7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ifood_challenge.CharacterListViewModel.__deallocating_deinit"
-                  moduleName = "ifood-challenge.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arthursilva/Documents/challenge-ifood/ifood-challenge/ifood-challenge/MVVM/ViewModel/CharacterListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
