@@ -15,13 +15,6 @@ Aplicação iOS para explorar personagens de Rick and Morty, consultar seus deta
 - Ícone personalizado e Launch Screen com imagem configurada no `Info.plist`.
 
 ## Demonstração
-
-### Listagem e pesquisa
-
-| Listagem de personagens | Pesquisa por “rick” | Pesquisa por “agency” |
-| --- | --- | --- |
-| <img src="docs/demos/listagem-personagens.png" alt="Lista de personagens durante a rolagem" width="240"> | <img src="docs/demos/pesquisa-rick.png" alt="Pesquisa por rick com personagens correspondentes" width="240"> | <img src="docs/demos/pesquisa-agency.png" alt="Pesquisa por agency com o resultado Agency Director" width="240"> |
-
 ### Fluxos em vídeo
 
 | Listagem, detalhes e filtros | Pesquisa e recuperação de falha de conexão |
@@ -29,6 +22,12 @@ Aplicação iOS para explorar personagens de Rick and Morty, consultar seus deta
 | <img src="docs/demos/listagem-detalhes-filtros.gif" alt="Demonstração da listagem, abertura dos detalhes e uso dos filtros" width="296"> | <img src="docs/demos/gravacao-app.gif" alt="Demonstração de pesquisa, mensagem de falha de conexão e retorno dos resultados" width="296"> |
 
 Os GIFs mantêm a duração completa das gravações e repetem continuamente. Para abrir separadamente: [listagem, detalhes e filtros](docs/demos/listagem-detalhes-filtros.gif) e [pesquisa e recuperação de falha](docs/demos/gravacao-app.gif).
+
+### Listagem e pesquisa
+
+| Listagem de personagens | Pesquisa por “rick” | Pesquisa por “agency” |
+| --- | --- | --- |
+| <img src="docs/demos/listagem-personagens.png" alt="Lista de personagens durante a rolagem" width="240"> | <img src="docs/demos/pesquisa-rick.png" alt="Pesquisa por rick com personagens correspondentes" width="240"> | <img src="docs/demos/pesquisa-agency.png" alt="Pesquisa por agency com o resultado Agency Director" width="240"> |
 
 ## Tecnologias utilizadas
 
