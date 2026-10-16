@@ -12,7 +12,7 @@ Aplicação iOS para explorar personagens de Rick and Morty, consultar seus deta
 - Nova tentativa da consulta inicial ou somente da página que falhou, preservando os resultados já carregados nesse segundo caso.
 - Restauração dos resultados, pesquisa, filtros, próxima página e posição da lista ao reabrir o app.
 - Cache de imagens em memória e disco, com placeholder durante o carregamento ou em caso de falha.
-- Ícone personalizado e Launch Screen com imagem em tela cheia, mantendo a proporção com `scaleAspectFill`.
+- Ícone personalizado e Launch Screen com imagem configurada no `Info.plist`.
 
 ## Demonstração
 
@@ -36,7 +36,7 @@ Os GIFs mantêm a duração completa das gravações e repetem continuamente. Pa
 | --- | --- |
 | Swift | Código da aplicação; modo de linguagem configurado como Swift 5. |
 | UIKit e Auto Layout | Telas, tabela, navegação e layouts programáticos. |
-| Storyboards | Navegação inicial em `Main.storyboard` e tela de abertura em `LaunchScreen.storyboard`. |
+| Ciclo de vida UIKit | Janela e navegação criadas no `SceneDelegate`; Launch Screen declarada no `Info.plist`. |
 | Foundation e `URLSession` | Requisições HTTP, composição de URLs e persistência com `UserDefaults`. |
 | Swift Concurrency | `async/await`, cancelamento de `Task`, `@MainActor` e isolamento do cache de imagens por `actor`. |
 | `Codable` | Decodificação da API e serialização dos dados locais em JSON. |
@@ -59,10 +59,10 @@ ifood-challenge/
 │   ├── Services/    CharacterService e ImageLoader
 │   └── Cache/       CodableStore, CharacterListStateStore e ImageCache
 ├── Resources/      AppStrings
-├── Assets.xcassets/
-├── Base.lproj/     Main.storyboard e LaunchScreen.storyboard
-└── Tests/          CharacterTests.swift
+└── Assets.xcassets/
 ```
+
+A pasta `Tests/` fica na raiz do repositório e contém apenas `CharacterTests.swift`, vinculada ao target `ifood-challengeTests`.
 
 
 ## Persistência local
@@ -115,7 +115,7 @@ Não é necessário instalar bibliotecas, configurar variáveis de ambiente ou i
 
 Com o mesmo esquema e um simulador selecionados, pressione **⌘U**. Os resultados aparecem no Test Navigator (**⌘6**).
 
-O target `ifood-challengeTests` contém oito testes em [CharacterTests.swift](ifood-challenge/Tests/CharacterTests.swift):
+O target `ifood-challengeTests` contém oito testes em [CharacterTests.swift](Tests/CharacterTests.swift):
 
 1. Mensagens de erro e recuperação, incluindo bloqueio de cliques repetidos.
 2. Preservação da pesquisa e dos filtros ao tentar novamente.

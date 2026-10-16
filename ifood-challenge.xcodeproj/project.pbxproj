@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		A1000000000000000000000E /* ifood-challenge/Tests/CharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000000C /* ifood-challenge/Tests/CharacterTests.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		A1000000000000000000000A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		A10000000000000000000002 /* ifood-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ifood-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1000000000000000000000C /* ifood-challenge/Tests/CharacterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ifood-challenge/Tests/CharacterTests.swift"; sourceTree = SOURCE_ROOT; };
 		E36F3BD730803AA800194DE0 /* ifood-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ifood-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -31,7 +26,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				Tests/CharacterTests.swift,
 			);
 			target = E36F3BD630803AA800194DE0 /* ifood-challenge */;
 		};
@@ -46,6 +40,11 @@
 			path = "ifood-challenge";
 			sourceTree = "<group>";
 		};
+		E3518D4C308183AF00525A5A /* Tests */ = {
+            isa = PBXFileSystemSynchronizedRootGroup;
+            path = Tests;
+            sourceTree = "<group>";
+        };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,20 +65,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E3518D4C308183AF00525A5A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				A1000000000000000000000C /* ifood-challenge/Tests/CharacterTests.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		E36F3BCE30803AA800194DE0 = {
 			isa = PBXGroup;
 			children = (
 				E36F3BD930803AA800194DE0 /* ifood-challenge */,
 				E36F3BD830803AA800194DE0 /* Products */,
-				E3518D4C308183AF00525A5A /* Recovered References */,
+				E3518D4C308183AF00525A5A /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +99,9 @@
 			dependencies = (
 				A10000000000000000000009 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+                E3518D4C308183AF00525A5A /* Tests */,
+            );
 			name = "ifood-challengeTests";
 			productName = "ifood-challengeTests";
 			productReference = A10000000000000000000002 /* ifood-challengeTests.xctest */;
@@ -196,7 +190,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1000000000000000000000E /* ifood-challenge/Tests/CharacterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,8 +262,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ifood-challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -297,8 +288,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ifood-challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
